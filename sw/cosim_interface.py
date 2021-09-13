@@ -16,12 +16,6 @@ class CosimInterface:
         self.delay_function = delay_function
         self.delay = delay
 
-    def change_delay_policy(self, delay=None, delay_function=None):
-        if delay is not None:
-            self.delay = delay
-        if delay_function is not None:
-            self.delay_function = delay_function
-
     def _make_fifos(self):
         self._remove_fifos()
         log.info("Making FIFOs")
@@ -52,10 +46,6 @@ class CosimInterface:
         else:
             raise Exception("Wrong status returned:" + s.strip())
 
-    def writeb(self, addr, val):
-        log.debug("Mock 'writeb' call, calling 'write'")
-        self.write(addr, val)
-
     def read(self, addr):
         if self.delay:
             self.wait(self.delay_function())
@@ -74,13 +64,6 @@ class CosimInterface:
         log.info("Read value %d (0x%.8x) (%s)" % (val, val, bin(val)))
 
         return val
-
-    def readb(self, addr):
-        log.debug("Mock 'readb' call, calling 'read'")
-        return self.read(addr)
-
-    def dispatch(self):
-        log.debug("Mock 'dispatch' call")
 
     def wait(self, time_ns):
         assert time_ns > 0 , "Wait time must be greater than 0"
