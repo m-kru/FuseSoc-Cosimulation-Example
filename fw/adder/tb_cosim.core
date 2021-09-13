@@ -20,4 +20,4 @@ generate:
     parameters:
       infile: agwb/tb_cosim.xml
       hdl: ../../build/agwb/adder/agwb/vhdl
-      pythondca: ../../build/agwb/adder/python
+      python: ../../build/agwb/adder/python

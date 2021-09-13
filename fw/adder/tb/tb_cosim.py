@@ -23,6 +23,16 @@ try:
     cosim_interface = CosimInterface(WRITE_FIFO_PATH, READ_FIFO_PATH, delay_function, True)
     agwb_top = agwb.top(cosim_interface, 0)
 
+    a = random.randint(0, 2**31 - 1)
+    b = random.randint(0, 2**31 - 1)
+    s = a + b
+
+    agwb_top.a.write(a)
+    agwb_top.b.write(b)
+
+    if s != agwb_top.s.read():
+        log.error("Read wrong value!")
+
     cosim_interface.wait(10 * CLOCK_PERIOD_40)
     log.info("Ending cosimulation")
     cosim_interface.end(0)

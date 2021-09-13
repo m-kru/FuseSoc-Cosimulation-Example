@@ -46,6 +46,20 @@ begin
    cosim_interface(C_READ_FIFO_PATH, C_WRITE_FIFO_PATH, clk, uvvm_wb_if, C_WB_BFM_CONFIG);
 
 
+   agwb_top : entity agwb.top
+   port map (
+      slave_i => wb_ms,
+      slave_o => wb_sm,
+
+      a_o => a,
+      b_o => b,
+      s_i => s,
+
+      rst_n_i => '1',
+      clk_sys_i => clk
+   );
+
+
    DUT : entity work.adder
    port map (
       clk_i => clk,
