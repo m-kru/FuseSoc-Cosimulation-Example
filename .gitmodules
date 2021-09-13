@@ -1,0 +1,3 @@
+[submodule "agwb"]
+	path = agwb
+	url = git@github.com:wzab/agwb.git
