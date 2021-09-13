@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-ENTITY="adder"
+ENTITY=$1
 DIR="/tmp/fusesoc_cosim_example/"
 LOG_FILE="$ENTITY.log"
 PYTHON_FILE="../../../fw/$ENTITY/tb/tb_cosim.py"

@@ -32,4 +32,4 @@ targets:
 
 scripts:
   tb_cosim:
-    cmd: [../../../tb_cosim.sh]
+    cmd: [../../../tb_cosim.sh, adder]
