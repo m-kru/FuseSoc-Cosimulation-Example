@@ -1,0 +1,18 @@
+CAPI=2:
+
+name: cern:general_cores:xwb_register:0.0.0
+
+filesets:
+    rtl:
+        files:
+            - ../modules/wishbone/wb_register/xwb_register.vhd
+        file_type: vhdlSource-93
+        logical_name: general_cores
+        depend:
+            - cern:general_cores:wishbone_pkg:0.0.0
+            - cern:general_cores:wb_skidpad:0.0.0
+
+targets:
+    default:
+        filesets:
+            - rtl

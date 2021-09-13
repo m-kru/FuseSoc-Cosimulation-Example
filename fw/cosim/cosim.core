@@ -1,0 +1,15 @@
+CAPI=2:
+
+name: ::cosim
+
+filesets:
+  src:
+    files:
+      - src/cosim.vhd
+      - src/cosim_context.vhd
+    file_type: vhdlSource-2008
+
+targets:
+  default:
+    filesets:
+      - src

@@ -1,0 +1,23 @@
+CAPI=2:
+
+name: ::tb_cosim_adder
+
+filesets:
+  agwb_dep:
+    depend:
+      - wzab::addr_gen_wb
+
+targets:
+  default:
+    generate:
+      - agwb_regs
+    filesets:
+      - agwb_dep
+
+generate:
+  agwb_regs:
+    generator: addr_gen_wb
+    parameters:
+      infile: agwb/tb_cosim.xml
+      hdl: ../../build/agwb/adder/agwb/vhdl
+      pythondca: ../../build/agwb/adder/python

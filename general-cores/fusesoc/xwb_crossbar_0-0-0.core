@@ -1,0 +1,17 @@
+CAPI=2:
+
+name: cern:general_cores:xwb_crossbar:0.0.0
+
+filesets:
+    rtl:
+        files:
+            - ../modules/wishbone/wb_crossbar/xwb_crossbar.vhd
+        file_type: vhdlSource-93
+        logical_name: general_cores
+        depend:
+            - cern:general_cores:wishbone_pkg:0.0.0
+
+targets:
+    default:
+        filesets:
+            - rtl

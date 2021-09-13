@@ -1,0 +1,35 @@
+CAPI=2:
+
+name: ::adder
+
+filesets:
+  src:
+    files:
+      - src/adder.vhd
+    file_type: vhdlSource-2008
+
+  tb_cosim:
+    files:
+      - tb/tb_cosim.vhd
+    file_type: vhdlSource-2008
+    depend:
+      - ::cosim
+      - ::tb_cosim_adder
+
+targets:
+  default:
+    filesets:
+      - src
+
+  tb_cosim:
+    default_tool: ghdl
+    toplevel: tb_cosim
+    filesets:
+      - src
+      - tb_cosim
+    hooks:
+      pre_run: [tb_cosim]
+
+scripts:
+  tb_cosim:
+    cmd: [../../../tb_cosim.sh]

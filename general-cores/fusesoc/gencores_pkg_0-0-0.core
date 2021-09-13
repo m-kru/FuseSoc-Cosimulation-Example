@@ -1,0 +1,15 @@
+CAPI=2:
+
+name: cern:general_cores:gencores_pkg:0.0.0
+
+filesets:
+    rtl:
+        files:
+            - ../modules/common/gencores_pkg.vhd
+        file_type: vhdlSource-93
+        logical_name: general_cores
+
+targets:
+    default:
+        filesets:
+            - rtl

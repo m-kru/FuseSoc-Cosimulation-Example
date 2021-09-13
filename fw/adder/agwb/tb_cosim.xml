@@ -1,0 +1,9 @@
+<sysdef top="top">
+
+	<block name="top">
+		<creg name="a" width="31" default="0"/>
+		<creg name="b" width="31" default="0"/>
+		<sreg name="s" width="32"/>
+	</block>
+
+</sysdef>

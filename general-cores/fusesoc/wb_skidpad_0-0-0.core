@@ -1,0 +1,15 @@
+CAPI=2:
+
+name: cern:general_cores:wb_skidpad:0.0.0
+
+filesets:
+    rtl:
+        files:
+            - ../modules/wishbone/wb_register/wb_skidpad.vhd
+        file_type: vhdlSource-93
+        logical_name: general_cores
+
+targets:
+    default:
+        filesets:
+            - rtl
