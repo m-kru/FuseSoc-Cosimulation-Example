@@ -20,3 +20,10 @@ The following components are assumed to be installed:
 - sw - python cosimulation interface module.
 - fw - directory for HDL codes and software test bench script.
 - general-cores - part of the general-cores library needed to make the Wishbone infrastructure work.
+
+## How to run?
+
+Simply execute `fsva ::adder tb_cosim` in a shell.
+The HDL output goes to the stdout.
+The software output goes to the `/tmp/fusesoc_cosim_example/adder.log`.
+If you want to see the software output live, simply run `tail -f /tmp/fusesoc_cosim_example/adder.log`.
