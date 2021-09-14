@@ -1,8 +1,11 @@
 import os
 import logging as log
 
+
 class CosimInterface:
-    def __init__(self, write_fifo_path, read_fifo_path, delay_function=None, delay=False):
+    def __init__(
+        self, write_fifo_path, read_fifo_path, delay_function=None, delay=False
+    ):
         """Create co-simulation interface.
         Parameters:
         -----------
@@ -57,7 +60,9 @@ class CosimInterface:
         if self.delay:
             self.wait(self.delay_function())
 
-        log.info("Writng address 0x%.8x, value %d (0x%.8x) (%s)" % (addr, val, val, bin(val)))
+        log.info(
+            "Writng address 0x%.8x, value %d (0x%.8x) (%s)" % (addr, val, val, bin(val))
+        )
 
         cmd = "W" + ("%.8x" % addr) + "," + ("%.8x" % val) + "\n"
         self.write_fifo.write(cmd)
@@ -88,7 +93,7 @@ class CosimInterface:
 
         s = self.read_fifo.readline()
         if s.strip() == "ERR":
-           raise Exception("Error status returned")
+            raise Exception("Error status returned")
 
         val = int(s, 2)
         log.info("Read value %d (0x%.8x) (%s)" % (val, val, bin(val)))
@@ -102,7 +107,7 @@ class CosimInterface:
         time_ns
             Time to wait in nanoseconds.
         """
-        assert time_ns > 0 , "Wait time must be greater than 0"
+        assert time_ns > 0, "Wait time must be greater than 0"
 
         log.info("Waiting for %d ns" % time_ns)
 
