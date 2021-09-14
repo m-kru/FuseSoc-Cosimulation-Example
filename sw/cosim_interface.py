@@ -101,7 +101,7 @@ class CosimInterface:
         return val
 
     def wait(self, time_ns):
-        """Wait in simulator for given amount of time.
+        """Wait in the simulator for a given amount of time.
         Parameters
         ----------
         time_ns
