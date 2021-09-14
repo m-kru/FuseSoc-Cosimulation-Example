@@ -5,7 +5,14 @@ An example showing how to run software and firmware cosimulation using FuseSoc h
 It uses Python for the software side and VHDL ([GHDL](https://github.com/ghdl/ghdl) simulator) for the firmware side.
 However, languages or simulator can be easily changed and the concept remains the same.
 
-The assumption is that [UVVM](https://github.com/UVVM/UVVM) library is already installed.
+## Dependencies
+
+The following components are assumed to be installed:
+
+- [GHDL](https://github.com/ghdl/ghdl) simulator,
+- [UVVM](https://github.com/UVVM/UVVM) library,
+- [FuseSoc](https://github.com/olofk/fusesoc),
+- [fsva](https://github.com/m-kru/fsva).
 
 ## Directory structure
 
