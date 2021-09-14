@@ -122,7 +122,7 @@ class CosimInterface:
             raise Exception("Wrong status returned:" + s.strip())
 
     def end(self, status):
-        """End co-simulation with given status.
+        """End a co-simulation with a given status.
         Parameters:
         -----------
         status
