@@ -35,5 +35,5 @@ But do not get mislead.
 You need most of these files in any serious project anyway.
 This includes bus infrastructure files (`general-cores`) and a tool for registers generation (`agwb`).
 There are also some co-simulation files that are reused, so you need only one instance of them.
-This includes `tb_cosim.sh` and `sw/cosim_interface.py`.
+This includes `tb_cosim.sh`, `sw/cosim_interface.py` `fw/cosim/*`.
 In the end, the only single co-simulation related files are `fw/adder/tb/tb_cosim.vhd`, and `fw/adder/tb/tb_cosim.py`.
