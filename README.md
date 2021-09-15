@@ -27,3 +27,13 @@ Simply execute `fsva ::adder tb_cosim` in a shell.
 The HDL output goes to the stdout.
 The software output goes to the `/tmp/fusesoc_cosim_example/adder.log`.
 If you want to see the software output live, simply run `tail -f /tmp/fusesoc_cosim_example/adder.log`.
+
+## Comment
+
+At first, when you look at the number of files, you might think that a lot of files are needed to run a single co-simulation.
+But do not get mislead.
+You need most of these files in any serious project anyway.
+This includes bus infrastructure files (`general-cores`) and a tool for registers generation (`agwb`).
+There are also some co-simulation files that are reused, so you need only one instance of them.
+This includes `tb_cosim.sh` and `sw/cosim_interface.py`.
+In the end, the only single co-simulation related files are `fw/adder/tb/tb_cosim.vhd`, and `fw/adder/tb/tb_cosim.py`.
