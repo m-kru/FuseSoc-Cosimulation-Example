@@ -1,3 +1,4 @@
+import sys
 import random
 import logging as log
 log.basicConfig(
@@ -9,8 +10,8 @@ log.basicConfig(
 import agwb
 from cosim_interface import CosimInterface
 
-WRITE_FIFO_PATH = "/tmp/fusesoc_cosim_example/adder_python_vhdl"
-READ_FIFO_PATH  = "/tmp/fusesoc_cosim_example/adder_vhdl_python"
+WRITE_FIFO_PATH = sys.argv[1]
+READ_FIFO_PATH  = sys.argv[2]
 
 CLOCK_PERIOD_40 = 25
 

@@ -14,7 +14,10 @@ filesets:
     file_type: vhdlSource-2008
     depend:
       - ::cosim
-      - ::tb_cosim_adder
+
+  agwb_dep:
+    depend:
+      - wzab::addr_gen_wb
 
 targets:
   default:
@@ -24,12 +27,38 @@ targets:
   tb_cosim:
     default_tool: ghdl
     toplevel: tb_cosim
+    generate:
+      - agwb_regs
     filesets:
+      - agwb_dep
       - src
       - tb_cosim
     hooks:
       pre_run: [tb_cosim]
+    parameters:
+      - G_SW_FW_FIFO_PATH=/tmp/fusesoc_cosim_example/adder_python_vhdl
+      - G_FW_SW_FIFO_PATH=/tmp/fusesoc_cosim_example/adder_vhdl_python
+
+generate:
+  agwb_regs:
+    generator: addr_gen_wb
+    parameters:
+      infile: agwb/tb_cosim.xml
+      hdl: ../../build/agwb/adder/agwb/vhdl
+      python: ../../build/agwb/adder/python
+
+parameters:
+  G_SW_FW_FIFO_PATH:
+    datatype: str
+    paramtype: generic
+  G_FW_SW_FIFO_PATH:
+    datatype: str
+    paramtype: generic
 
 scripts:
   tb_cosim:
-    cmd: [../../../tb_cosim.sh, adder]
+    cmd:
+      - ../../../tb_cosim.sh
+      - adder
+      - /tmp/fusesoc_cosim_example/adder_python_vhdl
+      - /tmp/fusesoc_cosim_example/adder_vhdl_python

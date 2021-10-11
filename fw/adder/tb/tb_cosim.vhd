@@ -4,13 +4,14 @@ library work;
 
 
 entity tb_cosim is
+   generic(
+      G_SW_FW_FIFO_PATH : string;
+      G_FW_SW_FIFO_PATH : string
+   );
 end entity;
 
 
 architecture test of tb_cosim is
-
-   constant C_READ_FIFO_PATH  : string := "/tmp/fusesoc_cosim_example/adder_python_vhdl";
-   constant C_WRITE_FIFO_PATH : string := "/tmp/fusesoc_cosim_example/adder_vhdl_python";
 
    signal clk : std_logic := '0';
 
@@ -43,7 +44,7 @@ begin
    uvvm_wb_if.dat_i <= wb_sm.dat;
    uvvm_wb_if.ack_i <= wb_sm.ack;
 
-   cosim_interface(C_READ_FIFO_PATH, C_WRITE_FIFO_PATH, clk, uvvm_wb_if, C_WB_BFM_CONFIG);
+   cosim_interface(G_SW_FW_FIFO_PATH, G_FW_SW_FIFO_PATH, clk, uvvm_wb_if, C_WB_BFM_CONFIG);
 
 
    agwb_top : entity agwb.top

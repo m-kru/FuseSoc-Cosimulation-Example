@@ -12,4 +12,5 @@ if [ ! -f "$PYTHON_FILE" ]; then
 	>&2 echo "$PYTHON_FILE not found"
 	exit 1
 fi
-python3 $PYTHON_FILE > "$DIR$LOG_FILE" 2>&1 &
+
+python3 $PYTHON_FILE $2 $3 > "$DIR$LOG_FILE" 2>&1 &
